@@ -24,5 +24,6 @@ class keepalived_wrapper {
     'keepalived::global_defs' => $keepalived_global_defs
   }
 
+  class { 'keepalived': }
   create_resources('class', $global_defs_hash)
 }
