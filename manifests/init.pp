@@ -20,12 +20,11 @@ class keepalived_wrapper {
   $keepalived_vrrp_instances = hiera_hash('keepalived::vrrp_instances', {})
   $keepalived_vrrp_scripts = hiera_hash('keepalived::vrrp_scripts', {})
 
-  $resources_hash = {
-    'keepalived'                 => {},
+  $global_defs_hash = {
     'keepalived::global_defs'    => $keepalived_global_defs,
-    'keepalived::vrrp::instance' => $keepalived_vrrp_instances,
-    'keepalived::vrrp::script'   => $keepalived_vrrp_scripts,
   }
 
-  create_resources('class', $resources_hash)
+  class { 'keepalived': }
+  create_resources('class', $global_defs_hash)
+  create_resources('keepalived::vrrp::instance', $keepalived_vrrp_instances)
 }
