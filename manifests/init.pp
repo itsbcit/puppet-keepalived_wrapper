@@ -2,7 +2,7 @@
 
 # keepalived::global_defs_merge: true
 # keepalived::global_defs:
-#   'notification_email': 'server.alerts@iheki.co'
+#   'notification_email': 'server.alerts@server.local'
 #   'notification_email_from': 'keepalived@%{::fqdn}'
 #   'smtp_server': 'localhost'
 #   'smtp_connect_timeout': '60'
